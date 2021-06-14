@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{801265D8-5784-43DB-B9E4-1BD38A9202B1}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>ReverseTicTacToe</RootNamespace>
-    <AssemblyName>ReverseTicTacToe</AssemblyName>
+    <ProjectGuid>{FC94A6A9-A086-4285-AFF8-AED315A98678}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>B21_Ex02_1</RootNamespace>
+    <AssemblyName>B21_Ex02_1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,53 +32,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="GameSettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GameSettingsForm.Designer.cs">
-      <DependentUpon>GameSettingsForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="AI.cs" />
+    <Compile Include="Board.cs" />
+    <Compile Include="GameLogic.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TicTacToeButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TicTacToeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Symbol.cs" />
+    <Compile Include="UI.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GameSettingsForm.resx">
-      <DependentUpon>GameSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GameLogic\B21_Ex02_1.csproj">
-      <Project>{fc94a6a9-a086-4285-aff8-aed315a98678}</Project>
-      <Name>B21_Ex02_1</Name>
-    </ProjectReference>
+    <Reference Include="Ex02.ConsoleUtils">
+      <HintPath>..\..\..\..\..\..\..\files\DLLs\Ex02.ConsoleUtils.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
