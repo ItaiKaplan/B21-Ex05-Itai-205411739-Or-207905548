@@ -34,5 +34,17 @@ namespace ReverseTicTacToe
             this.r_RowIndex = i_Row;
             this.r_ColIndex = i_Col;
         }
+
+        public void RestartButton()
+        {
+            this.Enabled = true;
+            this.Text = String.Empty;
+        }
+
+      public void PressButton()
+        {
+            this.Enabled = false;
+            this.Text = B21_Ex02_1.eSymbol.X.ToString();
+        }
     }
 }

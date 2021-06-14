@@ -132,12 +132,12 @@ namespace ReverseTicTacToe
             // 
             this.nUDRows.Location = new System.Drawing.Point(147, 219);
             this.nUDRows.Maximum = new decimal(new int[] {
-            10,
+            9,
             0,
             0,
             0});
             this.nUDRows.Minimum = new decimal(new int[] {
-            4,
+            3,
             0,
             0,
             0});
@@ -145,7 +145,7 @@ namespace ReverseTicTacToe
             this.nUDRows.Size = new System.Drawing.Size(47, 26);
             this.nUDRows.TabIndex = 9;
             this.nUDRows.Value = new decimal(new int[] {
-            4,
+            3,
             0,
             0,
             0});
@@ -154,12 +154,12 @@ namespace ReverseTicTacToe
             // 
             this.nUDCols.Location = new System.Drawing.Point(348, 215);
             this.nUDCols.Maximum = new decimal(new int[] {
-            10,
+            9,
             0,
             0,
             0});
             this.nUDCols.Minimum = new decimal(new int[] {
-            4,
+            3,
             0,
             0,
             0});
@@ -167,7 +167,7 @@ namespace ReverseTicTacToe
             this.nUDCols.Size = new System.Drawing.Size(47, 26);
             this.nUDCols.TabIndex = 10;
             this.nUDCols.Value = new decimal(new int[] {
-            4,
+            3,
             0,
             0,
             0});
@@ -191,6 +191,7 @@ namespace ReverseTicTacToe
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameSettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameSettings";
             this.Load += new System.EventHandler(this.GameSettingsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nUDRows)).EndInit();

@@ -2,15 +2,16 @@
 {
     public class Player
     {
-        private eSymbol m_Symbol;
+        private readonly eSymbol r_Symbol;
         private int m_Points;
-        private bool m_IsAI;
+        private readonly bool r_IsAI;
+        private readonly string r_Name; 
 
         public eSymbol Symbol
         {
             get
             {
-                return m_Symbol;
+                return r_Symbol;
             }
         }
 
@@ -31,15 +32,24 @@
         {
             get
             {
-                return m_IsAI;
+                return r_IsAI;
             }
         }
 
-        public Player(eSymbol i_Symbol, bool i_IsAI)
+        public string Name
+        {
+            get
+            {
+                return r_Name;
+            }
+        }
+
+        public Player(eSymbol i_Symbol, bool i_IsAI, string i_Name)
         {
             this.m_Points = 0;
-            this.m_Symbol = i_Symbol;
-            this.m_IsAI = i_IsAI;
+            this.r_Symbol = i_Symbol;
+            this.r_IsAI = i_IsAI;
+            this.r_Name = i_Name;
         }
 
         public void AddPoint()

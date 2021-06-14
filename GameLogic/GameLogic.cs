@@ -175,6 +175,7 @@
 
             if(checkRow() || checkMainDiagonal() || checkColumn() || checkSecondDiagonal())
             {
+                addPointToWinner();
                 winner = true;
             }
 
@@ -218,7 +219,7 @@
             this.TurnsLeft = this.Board.Size * this.Board.Size;
         }
 
-        public void AddPointToWinner()
+        private void addPointToWinner()
         {
             this.CurrentPlayer.AddPoint();
         }
