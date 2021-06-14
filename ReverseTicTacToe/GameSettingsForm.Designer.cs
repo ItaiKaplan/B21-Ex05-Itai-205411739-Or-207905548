@@ -88,7 +88,6 @@ namespace ReverseTicTacToe
             this.m_LabelPlayer1.Size = new System.Drawing.Size(69, 20);
             this.m_LabelPlayer1.TabIndex = 4;
             this.m_LabelPlayer1.Text = "Player 1:";
-            this.m_LabelPlayer1.Click += new System.EventHandler(this.label1_Click);
             // 
             // m_LabelNUDCols
             // 
@@ -116,7 +115,6 @@ namespace ReverseTicTacToe
             this.m_LabelBoardSize.Size = new System.Drawing.Size(91, 20);
             this.m_LabelBoardSize.TabIndex = 7;
             this.m_LabelBoardSize.Text = "Board Size:";
-            this.m_LabelBoardSize.Click += new System.EventHandler(this.label4_Click);
             // 
             // m_LabelPlayers
             // 
@@ -126,7 +124,6 @@ namespace ReverseTicTacToe
             this.m_LabelPlayers.Size = new System.Drawing.Size(64, 20);
             this.m_LabelPlayers.TabIndex = 8;
             this.m_LabelPlayers.Text = "Players:";
-            this.m_LabelPlayers.Click += new System.EventHandler(this.label5_Click);
             // 
             // nUDRows
             // 

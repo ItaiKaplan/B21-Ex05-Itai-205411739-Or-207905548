@@ -41,21 +41,6 @@ namespace ReverseTicTacToe
             }
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void NUDRows_ValueChanged(object sender, System.EventArgs e)
         {
             this.nUDCols.Value = (sender as NumericUpDown).Value;

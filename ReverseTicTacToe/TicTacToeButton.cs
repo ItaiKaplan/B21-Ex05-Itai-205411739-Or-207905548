@@ -40,11 +40,5 @@ namespace ReverseTicTacToe
             this.Enabled = true;
             this.Text = String.Empty;
         }
-
-      public void PressButton()
-        {
-            this.Enabled = false;
-            this.Text = B21_Ex02_1.eSymbol.X.ToString();
-        }
     }
 }
