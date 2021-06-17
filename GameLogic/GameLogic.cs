@@ -1,5 +1,7 @@
 ﻿namespace B21_Ex02_1
 {
+    public delegate void BoardUpdate(int i, int j);
+
     public class GameLogic
     {
         // $G$ CSS-999 (-3) this member should be readonly
@@ -7,6 +9,7 @@
         private readonly Player m_Player2;
         private readonly Board m_Board;
 
+        public event BoardUpdate boardUpdater;
         private Player m_CurrentPlayer;
         private int m_TurnsLeft;
         
@@ -208,6 +211,8 @@
                 this.TurnsLeft--;
                 this.changeTurn();
             }
+
+            this.boardUpdater.Invoke(i_Row, i_Column);
 
             return turnSucceed;
         }

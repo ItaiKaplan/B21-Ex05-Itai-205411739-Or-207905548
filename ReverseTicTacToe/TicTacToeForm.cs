@@ -12,7 +12,7 @@ namespace ReverseTicTacToe
     class TicTacToeForm : Form
     {
         private GameSettingsForm m_GameSettingsForm = new GameSettingsForm();
-        private TicTacToeButton[,] Board;
+        private TicTacToeButton[,] m_Board;
         private Label m_LabelPlayer1 = new Label();
         private Label m_LabelPlayer2 = new Label();
         private Label m_LabelPlayer1Score = new Label();
@@ -51,7 +51,7 @@ namespace ReverseTicTacToe
         private void initializecomponents()
         {  
             int BoardSize = this.gameSettingsForm.BoardSize;
-            this.Board = new TicTacToeButton[BoardSize, BoardSize];
+            this.m_Board = new TicTacToeButton[BoardSize, BoardSize];
             String Player1Name = this.gameSettingsForm.Player1Name;
             String Player2Name = this.m_GameSettingsForm.Player2Name;
 
@@ -62,12 +62,13 @@ namespace ReverseTicTacToe
             {
                 for(int j = 0; j < BoardSize; j++)
                 {
-                    Board[i, j] = new TicTacToeButton(i, j);
+                    m_Board[i, j] = new TicTacToeButton(i, j);
                     setButtonLocation(i, j);
-                    Board[i, j].Click += TicTacToeForm_Click;
-                    this.Controls.Add(Board[i, j]);
+                    m_Board[i, j].Click += TicTacToeForm_Click;
+                    this.Controls.Add(m_Board[i, j]);
                 }
             }
+            this.m_GameLogic.boardUpdater += updateVisualBoard;
             this.m_LabelPlayer1.Text = this.gameSettingsForm.Player1Name;
             this.m_LabelPlayer2.Text = this.gameSettingsForm.Player2Name;
             this.m_LabelPlayer1Score.Text = this.m_GameLogic.Player1.Points.ToString();
@@ -86,14 +87,18 @@ namespace ReverseTicTacToe
             this.Controls.Add(this.m_LabelPlayer2Score);
         }
 
+        private void updateVisualBoard(int i, int j)
+        {
+            this.m_Board[i, j].Text = this.m_GameLogic.CurrentPlayer.Symbol.ToString();
+            this.m_Board[i, j].Enabled = false;
+        }
+
         private void TicTacToeForm_Click(object sender, EventArgs e)
         {
             TicTacToeButton ClickedButton = (sender as TicTacToeButton);
             int row = ClickedButton.RowIndex;
             int col = ClickedButton.ColIndex;
             this.m_GameLogic.PlayTurn(row, col);
-            ClickedButton.Text = m_GameLogic.CurrentPlayer.Symbol.ToString();
-            ClickedButton.Enabled = false;
             nextTurn();
         }
 
@@ -154,7 +159,7 @@ Would you like to play another round?", "A Tie!", MessageBoxButtons.YesNo)
 
         private void resetVisualBoard()
         {
-            foreach(TicTacToeButton button in Board)
+            foreach(TicTacToeButton button in m_Board)
             {
                 button.RestartButton();
             }
@@ -169,16 +174,16 @@ Would you like to play another round?", "A Tie!", MessageBoxButtons.YesNo)
                 {
                     if(this.m_GameLogic.Board.BoardGrid[i, j].Equals(eSymbol.X))
                     {
-                        Board[i, j].PerformClick();
+                        m_Board[i, j].PerformClick();
                     }
                 }
             }
         }
         private void setButtonLocation(int i, int j)
         {
-            int x = (k_Margin + this.Board[i, j].Width) * i + k_Margin;
-            int y = (k_Margin + this.Board[i, j].Width) * j + k_Margin;
-            this.Board[i, j].Location = new Point(x, y);
+            int x = (k_Margin + this.m_Board[i, j].Width) * i + k_Margin;
+            int y = (k_Margin + this.m_Board[i, j].Width) * j + k_Margin;
+            this.m_Board[i, j].Location = new Point(x, y);
         }
     }
 }
