@@ -72,12 +72,19 @@ namespace ReverseTicTacToe
             this.m_LabelPlayer2.Text = this.gameSettingsForm.Player2Name;
             this.m_LabelPlayer1Score.Text = this.m_GameLogic.Player1.Points.ToString();
             this.m_LabelPlayer2Score.Text = this.m_GameLogic.Player2.Points.ToString();
+            this.m_LabelPlayer1.Size = new Size(this.m_LabelPlayer1.Text.Length * 6, 40);
+            this.m_LabelPlayer2.Size = new Size(this.m_LabelPlayer2.Text.Length * 6, 40);
+            this.m_LabelPlayer1Score.Size = new Size(this.m_LabelPlayer1Score.Text.Length * 10, 20);
+            this.m_LabelPlayer2Score.Size = new Size(this.m_LabelPlayer2Score.Text.Length * 10, 20);
             this.m_LabelPlayer1.Location = 
                 new Point(ClientSize.Width/2 - 
                 (this.m_LabelPlayer1.Width),
                 ClientSize.Height - (2*k_Margin));
-            this.m_LabelPlayer2.Location = new Point(ClientSize.Width / 2 + (BoardSize * 10), ClientSize.Height - (2 * k_Margin));
+            this.m_LabelPlayer2.Location = new Point(ClientSize.Width / 2 + m_LabelPlayer2.Width, ClientSize.Height - (2 * k_Margin));
             this.m_LabelPlayer1.BackColor = Color.Green;
+            this.m_LabelPlayer1Score.BackColor = Color.Pink;
+            this.m_LabelPlayer2.BackColor = Color.LightBlue;
+            this.m_LabelPlayer2Score.BackColor = Color.Yellow;
             this.m_LabelPlayer1Score.Location = new Point(this.m_LabelPlayer1.Left + this.m_LabelPlayer1.Width, ClientSize.Height - (2 * k_Margin));
             this.m_LabelPlayer2Score.Location = new Point(this.m_LabelPlayer2.Left + this.m_LabelPlayer2.Width, ClientSize.Height - (2 * k_Margin));
             this.Controls.Add(this.m_LabelPlayer1);
@@ -176,8 +183,8 @@ Would you like to play another round?", "A Tie!", MessageBoxButtons.YesNo)
         }
         private void setButtonLocation(int i, int j)
         {
-            int x = (k_Margin + this.Board[i, j].Width) * i + k_Margin;
-            int y = (k_Margin + this.Board[i, j].Width) * j + k_Margin;
+            int x = (5 + this.Board[i, j].Width) * i + (2*k_Margin-5);
+            int y = (5 + this.Board[i, j].Width) * j + k_Margin;
             this.Board[i, j].Location = new Point(x, y);
         }
     }

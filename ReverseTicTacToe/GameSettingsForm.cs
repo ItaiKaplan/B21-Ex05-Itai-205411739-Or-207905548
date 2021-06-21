@@ -15,7 +15,6 @@ namespace ReverseTicTacToe
         public GameSettingsForm()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
             this.nUDRows.ValueChanged += NUDRows_ValueChanged;
             this.nUDCols.ValueChanged += NUDCols_ValueChanged;
             this.m_ButtonStart.Click += M_ButtonStart_Click;
