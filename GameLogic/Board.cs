@@ -2,7 +2,6 @@
 {
 	public class Board
 	{
-        
 		private readonly eSymbol[,] m_Board;
 		private readonly int m_Size;
 
