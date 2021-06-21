@@ -168,17 +168,8 @@ Would you like to play another round?", "A Tie!", MessageBoxButtons.YesNo)
         private void playAITurn()
         {
             r_AI.PlayAITurn();
-            for(int i = 0; i < this.m_GameLogic.Board.Size; i++)
-            {
-                for(int j = 0; j < this.m_GameLogic.Board.Size; j++)
-                {
-                    if(this.m_GameLogic.Board.BoardGrid[i, j].Equals(eSymbol.X))
-                    {
-                        m_Board[i, j].PerformClick();
-                    }
-                }
-            }
         }
+
         private void setButtonLocation(int i, int j)
         {
             int x = (k_Margin + this.m_Board[i, j].Width) * i + k_Margin;
