@@ -1,15 +1,14 @@
-﻿namespace B21_Ex02_1
+﻿namespace TicTacToeLogic
 {
-    public delegate void BoardUpdate(int i, int j);
+    public delegate void BoardUpdateDelegate(int i_Row, int i_Col);
 
     public class GameLogic
     {
-        // $G$ CSS-999 (-3) this member should be readonly
-        private readonly Player m_Player1;
-        private readonly Player m_Player2;
-        private readonly Board m_Board;
+        private readonly Player r_Player1;
+        private readonly Player r_Player2;
+        private readonly Board r_Board;
 
-        public event BoardUpdate boardUpdater;
+        public event BoardUpdateDelegate UpdatingBoard;
         private Player m_CurrentPlayer;
         private int m_TurnsLeft;
         
@@ -17,7 +16,7 @@
         {
             get
             {
-                return m_Player1;
+                return r_Player1;
             }
         }
 
@@ -25,7 +24,7 @@
         {
             get
             {
-                return m_Player2;
+                return r_Player2;
             }
         }
 
@@ -46,7 +45,7 @@
         {
             get
             {
-                return m_Board;
+                return r_Board;
             }
         }
 
@@ -65,9 +64,9 @@
 
         public GameLogic(Player i_Player1, Player i_Player2, Board i_Board)
         {
-            this.m_Player1 = i_Player1;
-            this.m_Player2 = i_Player2;
-            this.m_Board = i_Board;
+            this.r_Player1 = i_Player1;
+            this.r_Player2 = i_Player2;
+            this.r_Board = i_Board;
             this.m_TurnsLeft = Board.Size * Board.Size;
             this.m_CurrentPlayer = i_Player1;
         }
@@ -212,7 +211,7 @@
                 this.changeTurn();
             }
 
-            this.boardUpdater.Invoke(i_Row, i_Column);
+            this.UpdatingBoard?.Invoke(i_Row, i_Column);
 
             return turnSucceed;
         }

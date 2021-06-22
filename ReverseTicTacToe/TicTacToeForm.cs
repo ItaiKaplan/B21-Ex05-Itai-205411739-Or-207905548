@@ -1,10 +1,6 @@
-﻿using B21_Ex02_1;
+﻿using TicTacToeLogic;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ReverseTicTacToe
@@ -68,36 +64,42 @@ namespace ReverseTicTacToe
                     this.Controls.Add(m_Board[i, j]);
                 }
             }
-            this.m_GameLogic.boardUpdater += updateVisualBoard;
+
+            this.m_GameLogic.UpdatingBoard += updateVisualBoard;
             this.m_LabelPlayer1.Text = this.gameSettingsForm.Player1Name;
             this.m_LabelPlayer2.Text = this.gameSettingsForm.Player2Name;
             this.m_LabelPlayer1Score.Text = this.m_GameLogic.Player1.Points.ToString();
             this.m_LabelPlayer2Score.Text = this.m_GameLogic.Player2.Points.ToString();
-            this.m_LabelPlayer1.Size = new Size(this.m_LabelPlayer1.Text.Length * 6, 40);
-            this.m_LabelPlayer2.Size = new Size(this.m_LabelPlayer2.Text.Length * 6, 40);
+            m_LabelPlayer1.AutoSize = false;
+            m_LabelPlayer1.TextAlign = ContentAlignment.TopRight;
+            m_LabelPlayer2.AutoSize = true;
             this.m_LabelPlayer1Score.Size = new Size(this.m_LabelPlayer1Score.Text.Length * 10, 20);
             this.m_LabelPlayer2Score.Size = new Size(this.m_LabelPlayer2Score.Text.Length * 10, 20);
-            this.m_LabelPlayer1.Location = 
-                new Point(ClientSize.Width/2 - 
-                (this.m_LabelPlayer1.Width),
-                ClientSize.Height - (2*k_Margin));
-            this.m_LabelPlayer2.Location = new Point(ClientSize.Width / 2 + m_LabelPlayer2.Width, ClientSize.Height - (2 * k_Margin));
-            this.m_LabelPlayer1.BackColor = Color.Green;
-            this.m_LabelPlayer1Score.BackColor = Color.Pink;
-            this.m_LabelPlayer2.BackColor = Color.LightBlue;
-            this.m_LabelPlayer2Score.BackColor = Color.Yellow;
-            this.m_LabelPlayer1Score.Location = new Point(this.m_LabelPlayer1.Left + this.m_LabelPlayer1.Width, ClientSize.Height - (2 * k_Margin));
-            this.m_LabelPlayer2Score.Location = new Point(this.m_LabelPlayer2.Left + this.m_LabelPlayer2.Width, ClientSize.Height - (2 * k_Margin));
             this.Controls.Add(this.m_LabelPlayer1);
             this.Controls.Add(this.m_LabelPlayer2);
+            this.m_LabelPlayer1.Location = 
+                new Point(ClientSize.Width/2 - 
+                (this.m_LabelPlayer1.Width) - this.m_LabelPlayer1Score.Width,
+                ClientSize.Height - (2*k_Margin));
+            this.m_LabelPlayer2.Location = new Point(this.ClientSize.Width / 2 + 10, ClientSize.Height - (2 * k_Margin));
+            this.m_LabelPlayer1Score.Location = new Point(this.m_LabelPlayer1.Left + this.m_LabelPlayer1.Width, 
+                ClientSize.Height - (2 * k_Margin));
+            this.m_LabelPlayer2Score.Location = new Point(this.m_LabelPlayer2.Right, 
+                ClientSize.Height - (2 * k_Margin));
+
             this.Controls.Add(this.m_LabelPlayer1Score);
             this.Controls.Add(this.m_LabelPlayer2Score);
+            this.ShowIcon = false;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void updateVisualBoard(int i, int j)
         {
             this.m_Board[i, j].Text = this.m_GameLogic.CurrentPlayer.Symbol.ToString();
             this.m_Board[i, j].Enabled = false;
+            nextTurn();
         }
 
         private void TicTacToeForm_Click(object sender, EventArgs e)
@@ -106,7 +108,6 @@ namespace ReverseTicTacToe
             int row = ClickedButton.RowIndex;
             int col = ClickedButton.ColIndex;
             this.m_GameLogic.PlayTurn(row, col);
-            nextTurn();
         }
 
         private void nextTurn()
@@ -179,9 +180,26 @@ Would you like to play another round?", "A Tie!", MessageBoxButtons.YesNo)
 
         private void setButtonLocation(int i, int j)
         {
-            int x = (5 + this.Board[i, j].Width) * i + (2*k_Margin-5);
-            int y = (5 + this.Board[i, j].Width) * j + k_Margin;
-            this.Board[i, j].Location = new Point(x, y);
+            int x = (k_Margin + this.m_Board[i, j].Width) * i + k_Margin;
+            int y = (k_Margin + this.m_Board[i, j].Width) * j + k_Margin;
+            this.m_Board[i, j].Location = new Point(x, y);
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // TicTacToeForm
+            // 
+            this.ClientSize = new System.Drawing.Size(278, 244);
+            this.Name = "TicTacToeForm";
+            this.Load += new System.EventHandler(this.TicTacToeForm_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void TicTacToeForm_Load(object sender, EventArgs e)
+        {
         }
     }
 }

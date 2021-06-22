@@ -1,15 +1,15 @@
-﻿namespace B21_Ex02_1
+﻿namespace TicTacToeLogic
 {
 	public class Board
 	{
-		private readonly eSymbol[,] m_Board;
-		private readonly int m_Size;
+		private readonly eSymbol[,] r_Board;
+		private readonly int r_Size;
 
 		public eSymbol[,] BoardGrid
 		{
 			get
 			{
-				return m_Board;
+				return r_Board;
 			}
         }
 
@@ -17,14 +17,14 @@
         {
             get
             {
-				return m_Size;
+				return r_Size;
             }
         }
 		
 		public Board(int i_sizeOfBoard)
 		{
-			this.m_Size = i_sizeOfBoard;
-			this.m_Board = new eSymbol[i_sizeOfBoard, i_sizeOfBoard];
+			this.r_Size = i_sizeOfBoard;
+			this.r_Board = new eSymbol[i_sizeOfBoard, i_sizeOfBoard];
 
 			for(int i = 0; i < this.Size; i++)
             {

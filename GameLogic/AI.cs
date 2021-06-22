@@ -1,8 +1,7 @@
-﻿namespace B21_Ex02_1
+﻿namespace TicTacToeLogic
 {
     public class AI
     {
-        // $G$ CSS-999 (-3) this member should be readonly
         private readonly GameLogic r_Game;
 
         public GameLogic Game

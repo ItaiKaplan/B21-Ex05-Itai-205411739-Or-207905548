@@ -18,6 +18,8 @@ namespace ReverseTicTacToe
             this.nUDRows.ValueChanged += NUDRows_ValueChanged;
             this.nUDCols.ValueChanged += NUDCols_ValueChanged;
             this.m_ButtonStart.Click += M_ButtonStart_Click;
+            this.ShowIcon = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void M_ButtonStart_Click(object sender, EventArgs e)
@@ -28,7 +30,6 @@ namespace ReverseTicTacToe
 
         private void GameSettingsForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
@@ -79,6 +80,11 @@ namespace ReverseTicTacToe
             {
                 return this.m_CheckBoxPlayer2.Checked;
             }
+        }
+
+        private void m_ButtonStart_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

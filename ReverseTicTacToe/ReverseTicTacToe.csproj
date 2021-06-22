@@ -53,12 +53,6 @@
       <DependentUpon>GameSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
     <Compile Include="TicTacToeButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -70,14 +64,14 @@
     <EmbeddedResource Include="GameSettingsForm.resx">
       <DependentUpon>GameSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
+    <EmbeddedResource Include="TicTacToeForm.resx">
+      <DependentUpon>TicTacToeForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameLogic\B21_Ex02_1.csproj">
+    <ProjectReference Include="..\GameLogic\TicTacToeLogic.csproj">
       <Project>{fc94a6a9-a086-4285-aff8-aed315a98678}</Project>
-      <Name>B21_Ex02_1</Name>
+      <Name>TicTacToeLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

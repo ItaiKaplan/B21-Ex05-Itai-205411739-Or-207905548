@@ -1,4 +1,4 @@
-﻿namespace B21_Ex02_1
+﻿namespace TicTacToeLogic
 {
     public class Player
     {

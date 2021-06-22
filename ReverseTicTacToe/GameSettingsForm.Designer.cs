@@ -63,6 +63,7 @@ namespace ReverseTicTacToe
             this.m_ButtonStart.TabIndex = 1;
             this.m_ButtonStart.Text = "Start!";
             this.m_ButtonStart.UseVisualStyleBackColor = true;
+            this.m_ButtonStart.Click += new System.EventHandler(this.m_ButtonStart_Click_1);
             // 
             // m_TextBoxPlayer2
             // 
