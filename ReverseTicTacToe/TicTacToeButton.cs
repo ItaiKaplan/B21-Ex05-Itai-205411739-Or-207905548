@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ReverseTicTacToe
 {
-    class TicTacToeButton : Button
+    public class TicTacToeButton : Button
     {
         private const int k_Size = 75;
         private readonly int r_RowIndex;
@@ -16,6 +16,7 @@ namespace ReverseTicTacToe
                 return this.r_RowIndex;
             }
         }
+
         public int ColIndex
         {
             get
@@ -34,7 +35,7 @@ namespace ReverseTicTacToe
         public void RestartButton()
         {
             this.Enabled = true;
-            this.Text = String.Empty;
+            this.Text = string.Empty;
         }
     }
 }

@@ -2,10 +2,10 @@
 {
     public class Player
     {
+        private readonly bool r_IsAI;
+        private readonly string r_Name;
         private readonly eSymbol r_Symbol;
         private int m_Points;
-        private readonly bool r_IsAI;
-        private readonly string r_Name; 
 
         public eSymbol Symbol
         {

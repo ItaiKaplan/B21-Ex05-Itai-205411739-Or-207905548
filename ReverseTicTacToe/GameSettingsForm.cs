@@ -58,6 +58,7 @@ namespace ReverseTicTacToe
                 return (int)this.nUDCols.Value;
             }
         }
+
         public string Player1Name
         {
             get
@@ -84,7 +85,6 @@ namespace ReverseTicTacToe
 
         private void m_ButtonStart_Click_1(object sender, EventArgs e)
         {
-
         }
     }
 }

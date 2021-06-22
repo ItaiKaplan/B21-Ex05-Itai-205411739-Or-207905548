@@ -7,7 +7,6 @@
         private readonly Player r_Player1;
         private readonly Player r_Player2;
         private readonly Board r_Board;
-
         public event BoardUpdateDelegate UpdatingBoard;
         private Player m_CurrentPlayer;
         private int m_TurnsLeft;

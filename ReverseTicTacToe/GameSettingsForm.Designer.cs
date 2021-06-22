@@ -1,5 +1,4 @@
-﻿
-namespace ReverseTicTacToe
+﻿namespace ReverseTicTacToe
 {
     partial class GameSettingsForm
     {
@@ -18,6 +17,7 @@ namespace ReverseTicTacToe
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -198,10 +198,6 @@ namespace ReverseTicTacToe
             this.PerformLayout();
 
         }
-
-    
-
-
 
         #endregion
 

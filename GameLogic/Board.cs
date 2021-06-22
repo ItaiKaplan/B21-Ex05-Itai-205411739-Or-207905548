@@ -45,7 +45,6 @@
 			return this.BoardGrid[i_row, i_column] == eSymbol.empty;
         }
 
-
 		public void ResetBoard()
         {
 			for(int i = 0; i < this.Size; i++)
