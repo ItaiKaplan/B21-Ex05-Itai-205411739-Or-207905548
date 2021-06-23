@@ -1,6 +1,6 @@
 ﻿namespace ReverseTicTacToe
 {
-    partial class GameSettingsForm
+    public partial class GameSettingsForm
     {
         /// <summary>
         /// Required designer variable.
