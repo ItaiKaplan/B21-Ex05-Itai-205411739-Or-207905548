@@ -184,11 +184,11 @@ MessageBoxButtons.YesNo) == DialogResult.Yes)
             r_AI.PlayAITurn();
         }
 
-        private void setButtonLocation(int i, int j)
+        private void setButtonLocation(int i_Row, int i_Colomun)
         {
-            int x = ((k_Margin + this.m_Board[i, j].Width) * i) + k_Margin;
-            int y = ((k_Margin + this.m_Board[i, j].Width) * j) + k_Margin;
-            this.m_Board[i, j].Location = new Point(x, y);
+            int buttonXValue = ((k_Margin + this.m_Board[i_Row, i_Colomun].Width) * i_Row) + k_Margin;
+            int buttonYValue = ((k_Margin + this.m_Board[i_Row, i_Colomun].Width) * i_Colomun) + k_Margin;
+            this.m_Board[i_Row, i_Colomun].Location = new Point(buttonXValue, buttonYValue);
         }
 
         private void InitializeComponent()
